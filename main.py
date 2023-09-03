@@ -22,7 +22,7 @@ def scan_ports(domain):
     ip_address = resolve_ip(domain)
     print("Target resolves to the IP address:",ip_address)
     for port in range(1,101):
-        socket_instance = socket.socket()
+        socket_instance = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket_instance.settimeout(0.5)
         try:
             socket_instance.connect((ip_address,port))
